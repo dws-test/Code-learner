@@ -645,14 +645,76 @@ const CHANGES=[
 ];
 
 /* Merge base chapter questions (apply to all editions) with edition-filtered extras */
+/* ============================================================
+   WASHINGTON STATE — WAC 296-46B & RCW 19.28
+   Washington public law (government regulations/statutes — not
+   copyrighted). Original plain-language summaries with citations.
+   WA adopts the NEC via WAC 296-46B, with state amendments;
+   RCW 19.28 governs licensing, permits, and inspections.
+   ============================================================ */
+const WA_CODES=[
+{id:'wac',nav:'📗 WAC',num:'WAC 296-46B',title:'WA Electrical Installation Rules',arts:'WAC 296-46B',
+ lesson:`<p>WAC 296-46B is Washington's chapter of the Administrative Code covering <b>electrical safety standards, administration, and installation</b>. It's written and enforced by the Department of Labor & Industries (L&I). Its core move is to <b>adopt the National Electrical Code</b> and then layer Washington-specific amendments on top.</p>
+ <div class="callout warn"><b>The big idea:</b> In Washington you don't just follow the NEC — you follow the NEC <i>as amended by WAC 296-46B</i>. Where the WAC changes or adds to an NEC rule, the WAC wins in this state.</div>
+ <h3>Adoption of the NEC</h3>
+ <p>WAC 296-46B adopts a specific edition of the NEC (Washington runs on its own adoption cycle, which often trails the newest national edition). Always confirm which NEC edition is currently adopted in WAC 296-46B-010 before you rely on a brand-new NEC rule — the national book may be ahead of what L&I has adopted.</p>
+ <div class="callout rw"><b>Real-world:</b> A brand-new rule appears in the latest NEC, but a Washington inspector cites the older adopted edition. That's normal — the enforceable edition is whatever WAC 296-46B currently adopts, not necessarily the newest NEC on the shelf.</div>
+ <h3>Permits & inspections</h3>
+ <p>Most electrical work in Washington requires an <b>electrical work permit</b> and an <b>inspection</b> before it's energized or concealed. L&I inspects in most of the state, but some jurisdictions (for example Seattle, Tacoma, Spokane, and Clark County) run their own electrical inspection programs — you pull permits and schedule inspections through them instead.</p>
+ <div class="callout warn"><b>Cover/rough-in rule:</b> You must not conceal wiring (cover it with drywall, backfill a trench, etc.) before it has been inspected/approved, unless the rules specifically allow it. Concealing work early is a classic correction.</div>
+ <h3>Common Washington amendments</h3>
+ <p>WAC 296-46B modifies parts of the NEC for local conditions — areas often addressed include services and meter equipment, working clearances, low-voltage/limited-energy systems, and administrative details like labeling and inspection procedures. Because these are state edits, verify the exact WAC subsection rather than assuming the plain NEC text applies unchanged.</p>`,
+ cites:[['WAC 296-46B-010','Adoption of the NEC (edition currently adopted)'],['WAC 296-46B-900 series','Permits, fees, and inspection procedures'],['WAC 296-46B-901','Electrical work permits'],['WAC 296-46B-905/909','Permit fees'],['Chapter 19.28 RCW','Enabling statute for these rules']],
+ q:[
+  {q:'In Washington, electrical installations must comply with:',o:['Only the NEC','The NEC as adopted and amended by WAC 296-46B','Only local city code','Manufacturer instructions only'],a:1,ref:'WAC 296-46B-010',e:'WA adopts the NEC via WAC 296-46B and adds state amendments; the amended version governs.'},
+  {q:'Which agency writes and enforces WAC 296-46B statewide?',o:['NFPA','The Department of Labor & Industries (L&I)','OSHA','The local fire department'],a:1,ref:'WAC 296-46B / RCW 19.28',e:'L&I administers Washington electrical rules, licensing, permits, and inspections.'},
+  {q:'The NEC edition enforceable in Washington is:',o:['Always the newest national edition','Whatever edition WAC 296-46B currently adopts','Chosen by the electrician','The 1999 edition'],a:1,ref:'WAC 296-46B-010',e:'Washington adopts on its own cycle; the adopted edition — not necessarily the newest NEC — is enforceable.'},
+  {q:'Before concealing electrical wiring in Washington you generally must:',o:['Take a photo','Have it inspected/approved first','Notify the utility','Paint the boxes'],a:1,ref:'WAC 296-46B-900 series',e:'Wiring must not be covered/concealed until inspected and approved (rough-in inspection), except where specifically permitted.'},
+  {q:'Which of these Washington jurisdictions may run its OWN electrical inspection program (not L&I)?',o:['Every small town','Certain cities/counties such as Seattle, Tacoma, Spokane, Clark County','Only federal land','None — L&I inspects everywhere'],a:1,ref:'RCW 19.28.010 / WAC 296-46B',e:'Some larger jurisdictions administer their own electrical programs; elsewhere L&I inspects.'},
+  {q:'Most electrical work in Washington requires:',o:['No permit','An electrical work permit and inspection','Only a business license','A federal permit'],a:1,ref:'WAC 296-46B-901',e:'An electrical work permit and inspection are required for most installations.'},
+  {q:'Where WAC 296-46B amends an NEC rule, the installer must follow:',o:['The unamended NEC','The Washington-amended rule','Whichever is cheaper','The manufacturer'],a:1,ref:'WAC 296-46B-010',e:'State amendments take precedence over the plain NEC text within Washington.'},
+  {q:'The statutory authority behind WAC 296-46B comes from:',o:['Chapter 19.28 RCW','The U.S. Constitution','The NFPA bylaws','OSHA 1910'],a:0,ref:'RCW 19.28',e:'RCW 19.28 is the enabling statute directing L&I to adopt and enforce electrical rules.'}
+ ]},
+{id:'rcw',nav:'📕 RCW',num:'RCW 19.28',title:'WA Electricians & Licensing Law',arts:'Chapter 19.28 RCW',
+ lesson:`<p>Chapter 19.28 RCW — "Electricians and electrical installations" — is the Washington <b>statute</b> that requires people and businesses doing electrical work to be licensed/certified, sets up permits and inspections, and empowers L&I to enforce it all. Where WAC 296-46B is the "how to install," RCW 19.28 is the "who's allowed to install and under what license."</p>
+ <h3>Who can do the work</h3>
+ <div class="kv"><span class="k">Certified electrician</span><span>An individual certificate is required to perform electrical work. The general journeyman certificate (01) requires several thousand hours of supervised experience and passing an exam.</span>
+ <span class="k">Specialty certificates</span><span>Narrower scopes (e.g., residential, pump/irrigation, HVAC/refrigeration, low-voltage) require fewer hours and a specialty exam.</span>
+ <span class="k">Trainee</span><span>Works under the supervision of a certified electrician and logs hours toward certification.</span>
+ <span class="k">Electrical contractor</span><span>A business license to bid/perform work — requires a bond, liability insurance, and a designated master/administrator.</span></div>
+ <div class="callout warn"><b>Washington uses an "electrical administrator," not a "master."</b> Each electrical contractor must designate a certified electrical administrator responsible for ensuring work complies with the law — the role many states call "master electrician."</div>
+ <h3>Supervision of trainees</h3>
+ <p>Trainees must be supervised by certified electricians on the job, and the law limits how many trainees a certified electrician may supervise (a ratio, generally in the neighborhood of one-to-one for much work, with specific exceptions). The point is that unlicensed learners can't run work unsupervised.</p>
+ <div class="callout rw"><b>Real-world:</b> A crew can't be all trainees. If the ratio requires a certified electrician per trainee and someone calls in sick, the crew may be out of compliance until supervision is restored — a real scheduling constraint on WA job sites.</div>
+ <h3>Continuing education & renewal</h3>
+ <p>Certified electricians must complete <b>continuing education</b> (including code-update hours) to renew — in Washington this is a set number of hours over each multi-year renewal period. Keep your CE current or your certificate lapses.</p>
+ <h3>Permits, inspections & enforcement</h3>
+ <p>RCW 19.28 backs the permit and inspection system and gives L&I authority to issue citations and penalties for unpermitted or non-compliant work. Doing electrical work without the required certificate/contractor license carries penalties.</p>`,
+ cites:[['RCW 19.28.041','Electrical contractor license required; bond & insurance'],['RCW 19.28.161','Certificate (journeyman/specialty) required; trainee supervision'],['RCW 19.28.201','Continuing education for renewal'],['RCW 19.28.101','Permits and inspection authority'],['RCW 19.28.006','Definitions'],['WAC 296-46A','Contractor/administrator licensing details']],
+ q:[
+  {q:'In Washington, the individual credential required to perform electrical work is a(n):',o:['Business license only','Electrician certificate (e.g., journeyman 01 or specialty)','Driver license','NFPA membership'],a:1,ref:'RCW 19.28.161',e:'Individuals need an electrician certificate; contractors additionally need a contractor license.'},
+  {q:'Washington\'s equivalent of a "master electrician" is called a(n):',o:['Foreman','Electrical administrator','Chief engineer','Inspector'],a:1,ref:'RCW 19.28 / WAC 296-46A',e:'Each electrical contractor designates a certified electrical administrator responsible for compliance.'},
+  {q:'To bid and perform electrical work as a business in WA, you must be a licensed electrical contractor with:',o:['Nothing extra','A bond, liability insurance, and a designated administrator','Only a website','A federal permit'],a:1,ref:'RCW 19.28.041',e:'Contractor licensing requires a bond, insurance, and a designated administrator.'},
+  {q:'A trainee performing electrical work must:',o:['Work alone','Be supervised by a certified electrician','Have a master license','Only observe'],a:1,ref:'RCW 19.28.161',e:'Trainees work under the supervision of certified electricians and log hours toward certification.'},
+  {q:'To renew a Washington electrician certificate you must complete:',o:['Nothing','Continuing education, including code-update hours','A new apprenticeship','A federal exam'],a:1,ref:'RCW 19.28.201',e:'Continuing education (with code-update content) is required to renew certification.'},
+  {q:'The general journeyman (01) certificate in Washington primarily requires:',o:['A weekend class','Thousands of hours of supervised experience plus passing an exam','Only an application fee','A high-school diploma alone'],a:1,ref:'RCW 19.28.161',e:'The general journeyman path requires extensive supervised hours and a passing exam score.'},
+  {q:'Which agency enforces RCW 19.28 (citations, penalties, inspections)?',o:['The FBI','The Department of Labor & Industries (L&I)','The NEC committee','The county assessor'],a:1,ref:'RCW 19.28.101',e:'L&I administers permits, inspections, and enforcement under RCW 19.28.'},
+  {q:'Performing electrical work in WA without the required certificate/contractor license is:',o:['Encouraged','Subject to citation and penalties','Only a paperwork issue','Allowed for friends'],a:1,ref:'RCW 19.28',e:'Unlicensed/unpermitted electrical work is subject to enforcement penalties.'},
+  {q:'A specialty certificate (e.g., residential or low-voltage) compared to the general journeyman:',o:['Requires more hours','Covers a narrower scope with fewer required hours','Is a business license','Has no exam'],a:1,ref:'RCW 19.28.161',e:'Specialty certificates authorize a limited scope and require fewer hours than the general (01).'}
+ ]}
+];
+function getContent(id){return CHAPTERS.find(x=>x.id===id)||WA_CODES.find(x=>x.id===id);}
 function getQuestions(chId){
-  const c=CHAPTERS.find(x=>x.id===chId);
+  const c=getContent(chId);
   const base=(c?c.q:[]).map(q=>({...q}));
   const extra=(EXTRA_Q[chId]||[]).filter(q=>!q.ed||q.ed.includes(S.edition));
   return base.concat(extra);
 }
 function allQuestionsForEdition(){
-  let all=[];CHAPTERS.forEach(c=>{getQuestions(c.id).forEach(q=>all.push(q));});return all;
+  let all=[];
+  CHAPTERS.forEach(c=>{getQuestions(c.id).forEach(q=>all.push(q));});
+  WA_CODES.forEach(c=>{getQuestions(c.id).forEach(q=>all.push(q));});
+  return all;
 }
 
 /* ============================================================
@@ -904,6 +966,8 @@ function checkBadges(){
 const TABS=[
  {id:'home',label:'🏠 Home'},
  {id:'learn',label:'📘 Learn'},
+ {id:'wac',label:'📗 WAC'},
+ {id:'rcw',label:'📕 RCW'},
  {id:'games',label:'🎮 Games'},
  {id:'violation',label:'🔎 Spot Violation'},
  {id:'glossary',label:'📖 Glossary'},
@@ -949,6 +1013,8 @@ function render(){
   const v=document.getElementById('view');
   if(current==='home')v.innerHTML=viewHome();
   else if(current==='learn')v.innerHTML=viewLearn();
+  else if(current==='wac')openChapter('wac');
+  else if(current==='rcw')openChapter('rcw');
   else if(current==='games')v.innerHTML=viewGames();
   else if(current==='violation')renderViolation();
   else if(current==='glossary')renderGlossary();
@@ -1035,8 +1101,11 @@ function viewLearn(){
        <button class="btn ghost" onclick="startExam(100)">📝 Full Exam (100 Q)</button>
        <button class="btn ghost" onclick="startEndless()">♾️ Endless Calc Practice</button>
        <button class="btn ghost" onclick="startChanges()">🔄 Code Changes 20→23→26</button>
+       <button class="btn ghost" onclick="startQuiz('wac')">📗 WAC Test</button>
+       <button class="btn ghost" onclick="startQuiz('rcw')">📕 RCW Test</button>
        <button class="btn ghost" onclick="openEdition()">📘 Edition: ${EDITIONS[S.edition].name}</button>
      </div>
+     <p class="muted" style="font-size:12px;margin-top:4px">Washington (WAC 296-46B &amp; RCW 19.28) questions are mixed into every exam automatically, or open the <b>WAC</b>/<b>RCW</b> tabs to study and test them on their own.</p>
    </div>
    <div class="chap-grid" style="margin-top:16px">${CHAPTERS.map((c,i)=>chapTile(c,i)).join('')}</div>
    ${footerNote()}`;
@@ -1057,13 +1126,26 @@ const CITES={
  ch9:[['Chapter 9, Table 1','Percent fill for conductors'],['Chapter 9, Table 4','Conduit/tubing dimensions & % area'],['Chapter 9, Table 5','Dimensions of insulated conductors'],['Chapter 9, Table 8','Conductor properties (circular mils, resistance)'],['Chapter 9, Table 9','AC resistance & reactance'],['210.19 Informational Note','Voltage-drop guidance (~3% / 5%)']]
 };
 function citesPanel(id){
-  const list=CITES[id]||[];
+  const content=getContent(id);
+  const isWA=content&&content.cites; // WA codes carry their own cites
+  const list=isWA?content.cites:(CITES[id]||[]);
   const rows=list.map(item=>{
     if(Array.isArray(item))return `<div style="padding:6px 0;border-bottom:1px solid var(--line)"><b style="color:var(--accent)">${item[0]}</b> — <span class="muted">${item[1]}</span></div>`;
     return `<div style="padding:6px 0;border-bottom:1px solid var(--line)"><b style="color:var(--accent)">${item}</b></div>`;
   }).join('');
+  if(isWA){
+    const link=id==='wac'?'https://app.leg.wa.gov/wac/default.aspx?cite=296-46B':'https://app.leg.wa.gov/rcw/default.aspx?cite=19.28';
+    const nm=id==='wac'?'WAC 296-46B':'Chapter 19.28 RCW';
+    return `<div class="callout" style="border-left-color:var(--good);margin-top:22px">
+      <b>📚 Related ${nm} sections</b>
+      <div class="muted" style="font-size:12px;margin:4px 0 8px">Washington law is public — read the exact text free at the WA Legislature site.</div>
+      ${rows}
+      <a href="${link}" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px" class="btn sm">📖 Read ${nm} free (leg.wa.gov) →</a>
+      <div class="muted" style="font-size:11px;margin-top:8px">Section numbers are pointers; WA adoption cycles change. Confirm against the current WAC/RCW and your local jurisdiction (some cities inspect their own work).</div>
+    </div>`;
+  }
   return `<div class="callout" style="border-left-color:var(--accent);margin-top:22px">
-    <b>📚 Related NEC 2026 sections</b>
+    <b>📚 Related NEC sections</b>
     <div class="muted" style="font-size:12px;margin:4px 0 8px">Look these up to read the official code language, word for word.</div>
     ${rows}
     <a href="https://www.nfpa.org/free-access" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px" class="btn sm">📖 Read the real NEC free at NFPA →</a>
@@ -1072,21 +1154,23 @@ function citesPanel(id){
 }
 function openChapter(id){
   if(!S.level){openLevel();return;}
-  const c=CHAPTERS.find(x=>x.id===id);
+  const c=getContent(id);
+  const isWA=c&&c.cites;
   if(!S.chapters[id])S.chapters[id]={best:0,stars:0,done:false,seen:false};
   S.chapters[id].seen=true;save();
   const v=document.getElementById('view');
   v.innerHTML=`
-   <button class="btn ghost sm" onclick="lessonState=null;go('learn')">← All Chapters</button>
+   <button class="btn ghost sm" onclick="lessonState=null;go('${isWA?'home':'learn'}')">← ${isWA?'Home':'All Chapters'}</button>
    <div class="card lesson" style="margin-top:12px">
-     <div class="tag" style="background:var(--panel2);color:var(--accent)">${c.num} • ${c.arts}</div>
+     <div class="tag" style="background:var(--panel2);color:${isWA?'var(--good)':'var(--accent)'}">${c.num} • ${c.arts}${isWA?' • Washington':''}</div>
      <h1 style="margin-top:10px">${c.title}</h1>
      ${c.lesson}
      ${citesPanel(id)}
      <div class="row" style="margin-top:22px">
-       <button class="btn" onclick="startQuiz('${id}')">📝 Take the Test (${LEVELS[S.level].qCount} Q)</button>
-       <button class="btn ghost" onclick="lessonState=null;go('learn')">Back</button>
+       <button class="btn" onclick="startQuiz('${id}')">📝 ${isWA?'Test '+c.num+' Independently':'Take the Test'} (${LEVELS[S.level].qCount} Q)</button>
+       <button class="btn ghost" onclick="lessonState=null;go('learn')">📘 Learn</button>
      </div>
+     ${isWA?'<p class="muted" style="font-size:12px;margin-top:10px">These questions are also mixed into the Exam Simulator and Code Rush, so Washington law shows up alongside the NEC — or drill it on its own with the button above.</p>':''}
    </div>${footerNote()}`;
   if(!S.chapters[id]._readXP){S.chapters[id]._readXP=1;save();addXP(10,'Lesson read!');}
   window.scrollTo(0,0);
@@ -1097,12 +1181,12 @@ let quiz=null;
 function shapeQ(q){
   const opts=q.o.map((t,idx)=>({t,correct:idx===q.a}));
   opts.sort(()=>Math.random()-0.5);
-  const e=q.e+(q.ref?` <span style="color:var(--accent)">[NEC ${q.ref}]</span>`:'');
+  const e=q.e+(q.ref?` <span style="color:var(--accent)">[${/^(WAC|RCW|Chapter 19)/.test(q.ref)?'':'NEC '}${q.ref}]</span>`:'');
   return {q:q.q,opts,e,answered:false,gotIt:false};
 }
 function startQuiz(id){
   tickStreak();
-  const c=CHAPTERS.find(x=>x.id===id);
+  const c=getContent(id);
   const src=getQuestions(id);
   const n=Math.min(LEVELS[S.level].qCount,src.length);
   const pool=[...src].sort(()=>Math.random()-0.5).slice(0,n).map(shapeQ);
